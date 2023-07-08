@@ -1,0 +1,29 @@
+.searchForm {
+  position: relative;
+  width: 75%;
+  margin: 0 20px;
+}
+
+.searchForm > * {
+  width: 100%;
+}
+
+.searchInput {
+  height: 40px;
+  color: var(--text-color-white);
+  font-size: var(--text-h4);
+  background: url(../../assets/svg/search.svg) no-repeat scroll 11px;
+  background-size: 14px;
+  background-color: var(--background-input-light-grey);
+  border-radius: var(--border-long-input);
+  transition: color 0.5s, background-color 0.5s, background 0.5s;
+  padding: 10px 40px;
+
+  &:hover,
+  &:focus {
+    color: var(--text-color-black);
+    background: url(../../assets/svg/search-active.svg) no-repeat scroll 11px;
+    background-size: 14px;
+    background-color: var(--background-white);
+  }
+}

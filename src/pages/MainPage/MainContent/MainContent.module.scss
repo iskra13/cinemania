@@ -1,0 +1,24 @@
+.mainHeader {
+  width: 100%;
+
+  & > h1 {
+    font-size: var(--text-h1);
+    line-height: 74px;
+    font-weight: var(--font-weight-700);
+    margin-bottom: 8px;
+  }
+
+  & > p {
+    font-size: var(--font-size-16);
+    margin-bottom: 26px;
+  }
+}
+
+.cardsContainer {
+  width: 100%;
+  min-height: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min-content, 260px));
+  justify-items: center;
+  gap: 20px;
+}

@@ -1,0 +1,118 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  min-width: 0;
+  min-height: 0;
+}
+
+:root {
+  --background-light-black: #151515;
+  --background-black: #000;
+  --background-white: #fff;
+  --background-grey: #ffffff12;
+  --background-light-grey: #ffffff1a;
+  --background-input: #0000004d;
+  --background-input-light-grey: #ffffff29;
+  --background-card-medium: #202020;
+  --loader-color: #616060;
+  --text-color-white: #fff;
+  --text-color-black: #000;
+  --text-color-grey: #ffffff66;
+  --text-color-green: #6dc849;
+  --text-color-red: #fc4b37;
+  --text-color-yellow: #fdca52;
+  --border-color-green: #6dc84966;
+  --border-color-red: #fc4b3766;
+  --border-color-yellow: #fdca5266;
+  --border-color-grey: #ffffff1a;
+  --border-item-radius: 12px;
+  --border-button: 6px;
+  --border-long-input: 24px;
+  --border-short-input: 4px;
+  --border-select: 8px;
+  --border-drop-menu: 4px;
+  --text-font-small: 1.6rem;
+  --text-categori: 2.4rem;
+  --text-h1: 7.2rem;
+  --text-h2: 4.4rem;
+  --text-h3: 1.8rem;
+  --text-h4: 1.4rem;
+  --text-h5: 1.1rem;
+  --font-size-16: 1.6rem;
+  --font-size-24: 2.4rem;
+  --text-button: 1.4rem;
+  --font-weight-700: 700;
+  --font-weight-600: 600;
+  --font-weight-400: 400;
+  --border-top: 1px solid hsla(0, 0%, 100%, 0.1);
+  --border-bottom: linear-gradient(
+    0deg,
+    hsla(0, 0%, 100%, 0) 0,
+    hsla(0, 0%, 100%, 0.4) 0,
+    hsla(0, 0%, 100%, 0.4) 1px,
+    hsla(0, 0%, 100%, 0) 0
+  );
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100vh;
+  font-size: 10px;
+  font-family: "Roboto", sans-serif;
+  color: var(--text-color-white);
+  background-color: var(--background-light-black);
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--background-input-light-grey);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: none;
+}
+
+a {
+  color: var(--background-white);
+  text-decoration: none;
+}
+
+input,
+button,
+textarea {
+  outline: none;
+  border: 0;
+  background: none;
+}
+
+img {
+  height: auto;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+ul,
+li,
+ol {
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+}

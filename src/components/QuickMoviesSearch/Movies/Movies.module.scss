@@ -1,0 +1,24 @@
+.moviesFound {
+  z-index: 6;
+  position: absolute;
+  top: 50px;
+  min-height: 100px;
+  max-height: 500px;
+  overflow-y: auto;
+  background-color: var(--background-black);
+  border-radius: var(--border-item-radius);
+  padding: 15px 15px;
+}
+
+.moviesNotFound {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  font-size: var(--text-h3);
+  color: var(--text-color-grey);
+
+  & > p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}

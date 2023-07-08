@@ -1,0 +1,41 @@
+.sidebarMenu {
+  width: 100%;
+
+  .title {
+    display: block;
+    line-height: 28px;
+    font-size: var(--font-size-24);
+    font-weight: var(--font-weight-700);
+    margin-bottom: 16px;
+  }
+
+  .links {
+    margin: 0 0 24px;
+  }
+
+  .links > li {
+    font-size: var(--text-h3);
+  }
+
+  .links > li:not(:last-child) {
+    margin-bottom: 8px;
+  }
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  line-height: normal;
+  font-size: var(--font-size-16);
+  font-weight: var(--font-weight-400);
+
+  .linkImage {
+    display: block;
+    width: 32px;
+    height: 32px;
+    border-radius: var(--border-button);
+    margin-right: 8px;
+    background-color: var(--background-light-grey);
+    object-fit: cover;
+  }
+}

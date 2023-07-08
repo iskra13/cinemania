@@ -1,0 +1,78 @@
+.container {
+  position: relative;
+  width: max-content;
+  min-width: 150px;
+  padding: 10px 16px;
+  background-color: hsla(0, 0%, 100%, 0.07);
+  border-radius: 8px;
+  font-size: var(--text-h4);
+  margin-right: 10px;
+
+  & > button {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background: none;
+    cursor: pointer;
+    color: var(--text-color-white);
+    transition: 0.3s;
+  }
+
+  & > button:hover {
+    opacity: 0.4;
+  }
+
+  & > button img {
+    width: 13px;
+    height: 13px;
+    margin: 0 6px 0 6px;
+    transform: rotate(90deg);
+  }
+}
+
+.title > span:not(:first-child) {
+  margin-left: 5px;
+}
+
+.spanLink {
+  font-weight: var(--font-weight-700);
+}
+
+.dropLinks {
+  z-index: 2;
+  position: absolute;
+  top: 0%;
+  right: 0;
+  left: auto;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 10px;
+  min-width: 150px;
+  width: 100%;
+  background-color: var(--background-white);
+  border-radius: var(--border-drop-menu);
+  transition: 0.3s;
+
+  & > button {
+    padding: 4px 10px;
+    transition: 0.1s;
+    text-transform: lowercase;
+    text-align: start;
+    border-radius: var(--border-drop-menu);
+  }
+
+  & > button::first-letter {
+    text-transform: uppercase;
+  }
+
+  & > button:hover {
+    background-color: #0000001a;
+  }
+
+  & .mark {
+    width: 13px;
+    height: 9px;
+    display: inline-block;
+    margin-left: 4px;
+  }
+}

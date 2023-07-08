@@ -1,0 +1,13 @@
+.wrapperPagination {
+  width: 100%;
+  min-height: 100%;
+
+  & > .paginationBlock {
+    width: 100%;
+    min-height: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min-content, 260px));
+    justify-items: center;
+    gap: 20px;
+  }
+}

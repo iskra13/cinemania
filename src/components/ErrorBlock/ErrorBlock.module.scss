@@ -1,0 +1,12 @@
+.errorBlock {
+  width: 100%;
+  min-height: 50px;
+  text-align: center;
+  font-size: var(--text-h3);
+  color: var(--text-color-grey);
+
+  & > p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
