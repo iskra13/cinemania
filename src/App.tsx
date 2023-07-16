@@ -1,7 +1,7 @@
 import { FC, Fragment } from "react";
 
 import NavBar from "./components/NavBar/NavBar";
-import AppRoute from "./approute/AppRoute";
+import AppRoute from "./components/AppRoute/AppRoute";
 
 import "./App.module.scss";
 

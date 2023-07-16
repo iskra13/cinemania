@@ -1,4 +1,4 @@
-import { FC, Fragment, ReactNode } from "react";
+import React, { FC, ReactNode } from "react";
 
 import s from "./PageArt.module.scss";
 
@@ -9,7 +9,7 @@ type PageArtProps = {
 
 const PageArt: FC<PageArtProps> = ({ urlImage, children }) => {
   return (
-    <Fragment>
+    <React.Fragment>
       {children}
       <div
         className={s.pageArt}
@@ -17,7 +17,7 @@ const PageArt: FC<PageArtProps> = ({ urlImage, children }) => {
           backgroundImage: `linear-gradient(to left, rgba(0, 0, 0, 0.7), #151515), url(${urlImage})`,
         }}
       ></div>
-    </Fragment>
+    </React.Fragment>
   );
 };
 

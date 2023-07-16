@@ -1,12 +1,12 @@
 .sidebarWrapper {
   align-self: stretch;
   flex-shrink: 0;
+  flex-basis: 220px;
 }
 
 .sidebar {
   position: sticky;
   top: 20px;
-  width: 200px;
   height: 100vh;
   overflow-y: auto;
   margin-right: 20px;

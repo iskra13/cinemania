@@ -1,4 +1,4 @@
-import { FC, useState, useEffect } from "react";
+import React, { FC, useState, useEffect } from "react";
 
 import ClickDropMenu from "../DropMenu/ClickDropMenu/ClickDropMenu";
 import PaginationBlock from "../PaginationBlock/PaginationBlock";
@@ -20,20 +20,18 @@ const MainMoviePagination: FC = () => {
   const [data, setData] = useState<MediumCardItem[]>([]);
   const [page, setPage] = useState<number>(1);
 
-  const API: string = import.meta.env.VITE_APP_CINEMANIA_API;
-
   useEffect(() => {
     setPage(1);
     setData([]);
   }, [genre]);
 
   return (
-    <>
+    <React.Fragment>
       <div style={{ marginBottom: "24px", display: "flex" }}>
         <ClickDropMenu order={"Order by"} links={generText} gener={genre} setGenre={setGenre} />
       </div>
       <PaginationBlock
-        api={`${API}/movie?page=${page}&type=${genre}&limit=10`}
+        postfixAPI={`/movie?page=${page}&type=${genre}&limit=10`}
         setData={setData}
         setPage={setPage}
         data={data}
@@ -49,7 +47,7 @@ const MainMoviePagination: FC = () => {
           />
         ))}
       </PaginationBlock>
-    </>
+    </React.Fragment>
   );
 };
 

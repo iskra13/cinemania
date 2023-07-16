@@ -2,8 +2,7 @@ import { FC, useState, useEffect, useRef } from "react";
 
 import { Link } from "react-router-dom";
 
-import rightCross from "../../../assets/svg/cross_right.svg";
-import mark from "../../../assets/svg/green_mark.svg";
+import { CrossRightSVG, GreenMarkSVG } from "../../../assets/svg";
 
 import s from "./ClickDropMenu.module.scss";
 
@@ -40,19 +39,14 @@ const ClickDropMenu: FC<ClickDropMenuProps> = ({ links, order = null, gener, set
           {Boolean(order) && <span>{`${order}:`}</span>}
           <span className={s.spanLink}>{gener}</span>
         </span>
-        <img className={s.crossRight} src={`${rightCross}`} alt="error_cross" />
+        <CrossRightSVG />
       </button>
       {isDropped && (
         <div className={s.dropLinks}>
           {links.map(({ link }, i) => (
             <button key={i} onClick={() => setGenre(link)}>
               {link}
-              {link === gener && (
-                <div
-                  className={s.mark}
-                  style={{ background: `url(${mark}) no-repeat 50%/cover` }}
-                ></div>
-              )}
+              {link === gener && <GreenMarkSVG className={s.greenMark} />}
             </button>
           ))}
         </div>

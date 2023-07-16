@@ -1,4 +1,4 @@
-import axios from "axios";
+import APIInstance from "../../api/API";
 
 import { useEffect, useState } from "react";
 import { useInput } from "../../hooks/useInput";
@@ -35,9 +35,6 @@ const QuickMoviesSearch = () => {
 
   const debouncedSearch: string = useDebounce(searchInput.value, 2000);
 
-  const API: string = import.meta.env.VITE_APP_CINEMANIA_API;
-  const TOKEN: string = import.meta.env.VITE_APP_CINEMANIA_TOKEN;
-
   useEffect(() => {
     setIsLoad(true);
 
@@ -45,12 +42,7 @@ const QuickMoviesSearch = () => {
       try {
         const {
           data: { docs },
-        } = await axios.get<Movies>(`${API}/movie?name=${debouncedSearch}`, {
-          headers: {
-            accept: "application/json",
-            "X-API-KEY": TOKEN,
-          },
-        });
+        } = await APIInstance.get<Movies>(`/movie?name=${debouncedSearch}`);
         setMovies(docs);
       } catch (error) {
         console.log(error);
@@ -60,7 +52,7 @@ const QuickMoviesSearch = () => {
     };
 
     if (debouncedSearch) fetchData();
-  }, [debouncedSearch, TOKEN, API]);
+  }, [debouncedSearch]);
 
   return (
     <form className={s.searchForm}>

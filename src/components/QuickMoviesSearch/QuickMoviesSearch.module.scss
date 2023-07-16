@@ -12,7 +12,7 @@
   height: 40px;
   color: var(--text-color-white);
   font-size: var(--text-h4);
-  background: url(../../assets/svg/search.svg) no-repeat scroll 11px;
+  background: url(../../assets/svg/search_white.svg) no-repeat scroll 11px;
   background-size: 14px;
   background-color: var(--background-input-light-grey);
   border-radius: var(--border-long-input);
@@ -22,7 +22,7 @@
   &:hover,
   &:focus {
     color: var(--text-color-black);
-    background: url(../../assets/svg/search-active.svg) no-repeat scroll 11px;
+    background: url(../../assets/svg/search_black.svg) no-repeat scroll 11px;
     background-size: 14px;
     background-color: var(--background-white);
   }

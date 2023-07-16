@@ -38,13 +38,14 @@
     padding: 16px 16px;
     will-change: transform;
     transition: 0.3s;
-    transform: translateY(35%);
+    transform: translateY(67%);
 
     .cardMeta {
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin-bottom: 7px;
+      font-size: var(--text-h3);
 
       .cardRating {
         color: var(--text-color-green);

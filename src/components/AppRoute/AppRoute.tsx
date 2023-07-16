@@ -1,17 +1,14 @@
 import { Routes, Route } from "react-router-dom";
 
-import SigninPage from "../pages/SigninPage/SigninPage";
-import SingupPage from "../pages/SingupPage/SingupPage";
-import MainPage from "../pages/MainPage/MainPage";
-import UserPage from "../pages/UserPage/UserPage";
-import ErrorPage from "../pages/ErrorPage/ErrorPage";
-import PrivateRoute from "../components/PrivateRoute/PrivateRoute";
+import { ErrorPage, SingupPage, SigninPage, MoviePage, UserPage, MainPage } from "../../pages";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 const AppRoute = () => {
   return (
     <Routes>
       <Route path="/signin" element={<SigninPage />} />
       <Route path="/signup" element={<SingupPage />} />
+      <Route path="/:id" element={<MoviePage />} />
       <Route path="/user" element={<PrivateRoute />}>
         <Route path="/user" element={<UserPage />} />
       </Route>
