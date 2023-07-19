@@ -1,4 +1,4 @@
-import APIInstance from "../../api/API";
+import { ShortDescriptionMovie, fetchShortDesriptionMovies } from "../../api/services/movies";
 
 import { useEffect, useState } from "react";
 import { useInput } from "../../hooks/useInput";
@@ -8,42 +8,21 @@ import Movies from "./Movies/Movies";
 
 import s from "./QuickMoviesSearch.module.scss";
 
-export type Movie = {
-  alternativeName: string | null;
-  name: string;
-  id: number;
-  poster: {
-    previewUrl: string;
-  } | null;
-  shortDescription: string | null;
-  type: string;
-  year: number;
-  rating: {
-    kp: number;
-  };
-};
-
-export type Movies = {
-  docs: Movie[];
-};
-
 const QuickMoviesSearch = () => {
   const searchInput = useInput();
   const [onFocus, setOnFocus] = useState<boolean>(true);
   const [isload, setIsLoad] = useState<boolean>(true);
-  const [movies, setMovies] = useState<Movie[]>([]);
+  const [movies, setMovies] = useState<ShortDescriptionMovie[]>([]);
 
-  const debouncedSearch: string = useDebounce(searchInput.value, 2000);
+  const debouncedSearch: string = useDebounce(searchInput.value, 1000);
 
   useEffect(() => {
     setIsLoad(true);
 
     const fetchData = async () => {
       try {
-        const {
-          data: { docs },
-        } = await APIInstance.get<Movies>(`/movie?name=${debouncedSearch}`);
-        setMovies(docs);
+        const response = await fetchShortDesriptionMovies(debouncedSearch);
+        setMovies(response.data.docs);
       } catch (error) {
         console.log(error);
       } finally {

@@ -1,4 +1,5 @@
-import React, { FC, useState, useEffect } from "react";
+import React, { FC, useState, useEffect, useCallback } from "react";
+import { CardsDescriptionMovie, fetchCardsDescriptionMovies } from "../../api/services/movies";
 
 import ClickDropMenu from "../DropMenu/ClickDropMenu/ClickDropMenu";
 import PaginationBlock from "../PaginationBlock/PaginationBlock";
@@ -6,24 +7,16 @@ import CardMedium from "../CardMedium/CardMedium";
 
 import { generText } from "../../texts/DropMenuTexts";
 
-export type MediumCardItem = {
-  alternativeName: string;
-  name: string;
-  poster: { url: string };
-  id: number;
-  type: string;
-  rating: { kp: number };
-};
-
 const MainMoviePagination: FC = () => {
   const [genre, setGenre] = useState<string>("movie");
-  const [data, setData] = useState<MediumCardItem[]>([]);
+  const [data, setData] = useState<CardsDescriptionMovie[]>([]);
   const [page, setPage] = useState<number>(1);
 
   useEffect(() => {
-    setPage(1);
     setData([]);
   }, [genre]);
+
+  const fetchMovies = useCallback(() => fetchCardsDescriptionMovies(page, genre), [page, genre]);
 
   return (
     <React.Fragment>
@@ -31,10 +24,12 @@ const MainMoviePagination: FC = () => {
         <ClickDropMenu order={"Order by"} links={generText} gener={genre} setGenre={setGenre} />
       </div>
       <PaginationBlock
-        postfixAPI={`/movie?page=${page}&type=${genre}&limit=10`}
+        callBack={fetchMovies}
         setData={setData}
         setPage={setPage}
         data={data}
+        page={page}
+        dependence={genre}
       >
         {data.map((item) => (
           <CardMedium

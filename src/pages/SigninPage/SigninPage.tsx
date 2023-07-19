@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import Layout from "../../components/Layout/Layout";
+import Layout from "../../components/Layouts/Layout/Layout";
 import PageArt from "../../components/PageArt/PageArt";
 import SigninForm from "../../components/Forms/SigninForm/SigninForm";
 
@@ -14,4 +14,4 @@ const SigninPage: FC = () => {
   );
 };
 
-export default SigninPage;
+export { SigninPage };

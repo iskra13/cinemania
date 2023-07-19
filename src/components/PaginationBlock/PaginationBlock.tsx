@@ -1,6 +1,6 @@
+import { AxiosResponse } from "axios";
 import { FC, useRef, useEffect, useState } from "react";
-
-import APIInstance from "../../api/API";
+import { DocsArr } from "../../api/services/movies";
 
 import { useIntersectionObserver } from "../../hooks/useIntersectionObserver";
 
@@ -10,19 +10,22 @@ import ErrorBlock from "../ErrorBlock/ErrorBlock";
 import s from "./PaginationBlock.module.scss";
 
 type PaginationBlockProps<T> = {
-  postfixAPI: string;
+  callBack: () => Promise<AxiosResponse<DocsArr<T>>>;
   children: React.ReactNode;
   data: T[];
+  page: number;
   setData: React.Dispatch<React.SetStateAction<T[]>>;
   setPage: React.Dispatch<React.SetStateAction<number>>;
+  dependence: string;
 };
 
 const PaginationBlock: FC<PaginationBlockProps<any>> = ({
-  postfixAPI,
   children,
   setData,
   setPage,
   data,
+  callBack,
+  dependence,
 }) => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<unknown>(null);
@@ -35,15 +38,17 @@ const PaginationBlock: FC<PaginationBlockProps<any>> = ({
   const observer = useIntersectionObserver(nextPage);
 
   useEffect(() => {
+    setPage(1);
+  }, [dependence, setPage]);
+
+  useEffect(() => {
     setIsLoading(true);
     setError(null);
 
     const getData = async () => {
       try {
-        const {
-          data: { docs },
-        } = await APIInstance.get(postfixAPI);
-        setData((prevState) => [...prevState, ...docs]);
+        const response = await callBack();
+        setData((prevState) => [...prevState, ...response.data.docs]);
       } catch (err) {
         console.log(err);
         setError(err);
@@ -53,7 +58,7 @@ const PaginationBlock: FC<PaginationBlockProps<any>> = ({
     };
 
     getData();
-  }, [postfixAPI, setData]);
+  }, [setData, callBack]);
 
   useEffect(() => {
     if (lastElementRef.current) {

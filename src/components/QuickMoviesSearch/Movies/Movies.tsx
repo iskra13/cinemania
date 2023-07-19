@@ -1,5 +1,5 @@
 import { FC } from "react";
-import type { Movie } from "../QuickMoviesSearch";
+import type { ShortDescriptionMovie } from "../../../api/services/movies";
 
 import Loader from "../../Loader/Loader";
 import ErrorBlock from "../../ErrorBlock/ErrorBlock";
@@ -9,7 +9,7 @@ import s from "./Movies.module.scss";
 
 type MoviesProps = {
   isload: boolean;
-  movies: Movie[];
+  movies: ShortDescriptionMovie[];
 };
 
 const Movies: FC<MoviesProps> = ({ isload, movies }) => {

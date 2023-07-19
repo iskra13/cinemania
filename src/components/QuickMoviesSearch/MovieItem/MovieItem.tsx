@@ -1,5 +1,5 @@
 import { FC } from "react";
-import type { Movie } from "../QuickMoviesSearch";
+import type { ShortDescriptionMovie } from "../../../api/services/movies";
 
 import { Link } from "react-router-dom";
 
@@ -7,7 +7,7 @@ import { defineGradeMovie } from "../../../utils/defineGradeMovie";
 
 import s from "./MovieItem.module.scss";
 
-const MovieItem: FC<Movie> = ({
+const MovieItem: FC<ShortDescriptionMovie> = ({
   alternativeName,
   name,
   id,

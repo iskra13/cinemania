@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import Layout from "../../components/Layout/Layout";
+import Layout from "../../components/Layouts/Layout/Layout";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import MainContent from "./MainContent/MainContent";
 
@@ -13,4 +13,4 @@ const MainPage: FC = () => {
   );
 };
 
-export default MainPage;
+export { MainPage };
